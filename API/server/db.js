@@ -53,7 +53,6 @@ const resolvers = {
 
         async updateTask(_, { id, taskName }) {
             const taskList = await db.collection("Tasks");
-            console.log(id);
             await taskList.findOneAndUpdate({ id: id }, {
                 $set: { id, taskName }
             }, {returnDocument: "after", upsert: true});
